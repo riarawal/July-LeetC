@@ -44,10 +44,15 @@ cells[i] is in {0, 1}
 
 class Solution {
     public int[] prisonAfterNDays(int[] cells, int N) {
-        if(N==0){
+    
+    //N is 0 ke bina bhi chlega
+     if(N==0){
             return cells;
         }
-        
+     //yeh
+     
+     
+     
         if(N>14){
             N%=14;
             if(N==0){
