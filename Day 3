@@ -52,7 +52,7 @@ class Solution {
      //yeh
      
      
-     
+    
         if(N>14){
             N%=14;
             if(N==0){
