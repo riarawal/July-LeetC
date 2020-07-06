@@ -35,3 +35,8 @@ class Solution {
         return c;   
     }
 }
+
+//isme xor krke 1 ke sath last bit and kia 
+//fir right shift krte gye to find total number of ones
+//& - 1*1 is1 else 0
+
