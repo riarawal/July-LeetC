@@ -21,6 +21,8 @@ Explanation:
 The above arrows point to positions where the corresponding bits are different.
 
 ------------
+xor-single1-1
+    double1-0
 
 class Solution {
     public int hammingDistance(int x, int y) {
