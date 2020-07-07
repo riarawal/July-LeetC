@@ -76,7 +76,7 @@ class Solution {
 
 
 -------------
-
+// temp se har row ka sum niklega
 
 class Solution {
   public int arrangeCoins(int n) {
