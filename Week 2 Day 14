@@ -23,7 +23,6 @@ Example 5:
 Input: hour = 12, minutes = 0
 Output: 0
  
-
 Constraints:
 
 1 <= hour <= 12
