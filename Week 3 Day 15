@@ -66,3 +66,24 @@ class Solution {
 
 -----------
 
+class Solution {
+    public String reverseWords(String s) {
+        String si="";
+        if(s.length()==0)
+        {
+            return "";
+        }   
+          String str[]=s.split(" ");
+        for(int i=str.length-1;i>=0;i--)
+        {
+            if(!str[i].equals("")){
+             si+=str[i]+" ";
+             } 
+        }
+        return si.trim();
+    }
+}
+
+-------
+
+
