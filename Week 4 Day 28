@@ -37,3 +37,24 @@ Constraints:
 
 The number of tasks is in the range [1, 10000].
 The integer n is in the range [0, 100].
+
+-----
+
+// class Solution {
+//     public int leastInterval(char[] tasks, int n) {
+        
+//     }
+// }
+
+public class Solution {
+    public int leastInterval(char[] tasks, int n) {
+        int[] counts = new int[26];
+        for (char ch : tasks) counts[ch - 'A']++;
+        int max = Integer.MIN_VALUE;
+        for (int count : counts) max = Math.max(max, count);
+        max--;
+        int spaces = max * n + max; //we + max here to 
+        for (int count : counts) spaces -= Math.min(count, max);
+        return spaces > 0 ? tasks.length + spaces : tasks.length;
+    }
+}
