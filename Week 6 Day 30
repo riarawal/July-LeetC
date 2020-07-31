@@ -36,3 +36,87 @@ s = "catsandog"
 wordDict = ["cats", "dog", "sand", "and", "cat"]
 Output:
 []
+
+
+----------
+
+// class Solution {
+//     public List<String> wordBreak(String s, List<String> wordDict) {
+        
+//     }
+// }
+
+// public class Solution {
+//     public ArrayList<String> wordBreak(String s, List<String> dict) {
+//         ArrayList<String> result = new ArrayList<String>();
+//         if (s == null || s.isEmpty() || dict.isEmpty()) 
+//             return result;
+         
+//         wordBreakHelper(s, dict, "", result);
+         
+//         return result;
+//     }
+     
+//     private void wordBreakHelper(String s, List<String> dict, String item, ArrayList<String> result) {
+//         if (s.isEmpty()) {
+//             result.add(item);
+//             return;
+//         }
+         
+//         StringBuilder sb = new StringBuilder();
+//         for (int i = 0; i < s.length(); i++) {
+//             sb.append(s.charAt(i));
+//             if (dict.contains(sb.toString())) {
+//                 String newItem = item.length() > 0 ? item + " " + sb.toString() : sb.toString();
+//                 wordBreakHelper(s.substring(i + 1), dict, newItem, result);
+//             }
+//         }
+//     }
+// }
+
+
+public class Solution {
+    public ArrayList<String> wordBreak(String s, List<String> dict) {
+        ArrayList<String> result = new ArrayList<String>();
+        if (s == null || s.isEmpty() || dict.isEmpty()) 
+            return result;
+         
+        wordBreakHelper(s, dict, "", result);
+         
+        return result;
+    }
+     
+    private void wordBreakHelper(String s, List<String> dict, String item, ArrayList<String> result) {
+        if (!isBreakable(s, dict)) return;
+         
+        if (s.isEmpty()) {
+            result.add(item);
+            return;
+        }
+         
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            sb.append(s.charAt(i));
+            if (dict.contains(sb.toString())) {
+                String newItem = item.length() > 0 ? item + " " + sb.toString() : sb.toString();
+                wordBreakHelper(s.substring(i + 1), dict, newItem, result);
+            }
+        }
+    }
+     
+    private boolean isBreakable(String s, List<String> dict) {
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+         
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                if (dp[j] == true && dict.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+         
+        return dp[s.length()];
+    }
+}
